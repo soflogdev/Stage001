@@ -21,9 +21,9 @@ public class MainActivity extends Activity {
 
 
         Intent parentIntent = getIntent();
-        if ((parentIntent != null) && (parentIntent.hasExtra("name")))
+        if ((parentIntent != null) && (parentIntent.hasExtra("user")))
         {
-            name = parentIntent.getStringExtra("name");
+            name = parentIntent.getStringExtra("user");
             code = parentIntent.getStringExtra("code");
         }
 

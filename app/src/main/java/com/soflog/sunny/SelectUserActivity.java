@@ -72,7 +72,7 @@ public class SelectUserActivity extends Activity {
         //TODO: démarrer l'activité MainActivity en mettant comme paramètre le nom et le code de l'utilisateur
 
         int random_index = new Random().nextInt(namesArray.length);
-        int index = 1;
+        int index = random_index;
         Intent intent = new Intent(this,MainActivity.class);
         intent.putExtra("user", namesArray[index]);
         intent.putExtra("code", codesArray[index]);
