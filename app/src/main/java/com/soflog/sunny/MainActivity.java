@@ -10,22 +10,33 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
-
+import android.widget.TextView;
 
 
 public class MainActivity extends Activity {
 
+    private PlaceholderFragment mFragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         if (savedInstanceState == null) {
+
             getFragmentManager().beginTransaction()
                     .add(R.id.container, new PlaceholderFragment())
                     .commit();
+            mFragment = (PlaceholderFragment) getFragmentManager().findFragmentById(R.id.container);
         }
+
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mFragment = (PlaceholderFragment) getFragmentManager().findFragmentById(R.id.container);
+        mFragment.addLog("MainActivity > onStart");
+
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -51,14 +62,60 @@ public class MainActivity extends Activity {
      */
     public static class PlaceholderFragment extends Fragment {
 
+        private StringBuilder sBuilder ;
+        private TextView textviewDebug;
+
+        public void addLog(String s) {
+            sBuilder.insert(0, "\n");
+            sBuilder.insert(0, s  );
+            textviewDebug.setText(sBuilder.toString());
+        }
+
         public PlaceholderFragment() {
         }
 
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                Bundle savedInstanceState) {
+        @Override // #Lifecycle #1
+        public void onAttach(Activity activity) {
+            super.onAttach(activity);
+
+        }
+
+        @Override // Lifecycle #3
+        public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
+        {
             View rootView = inflater.inflate(R.layout.fragment_main, container, false);
+
+            textviewDebug = (TextView) rootView.findViewById(R.id.textview_debug);
+            addLog("Fragment > onCreateView");
             return rootView;
         }
+
+        @Override  // Lifecycle #4
+        public void onActivityCreated(Bundle savedInstanceState) {
+            super.onActivityCreated(savedInstanceState);
+
+            addLog("Fragment > onActivityCreated");
+        }
+
+        @Override  // Lifecycle #7
+        public void onResume() {
+            super.onResume();
+            addLog("Fragment > onResume");
+
+        }
+
+        @Override
+        public void onDestroy() {
+            super.onDestroy();
+            sBuilder = null;
+        }
+
+        @Override
+        public void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            sBuilder = new StringBuilder();
+        }
+
+
     }
 }

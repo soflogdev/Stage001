@@ -4,5 +4,6 @@
     <string name="app_name">Sunny</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="label_sendemail">Rédiger un email</string>
 
 </resources>
