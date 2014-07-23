@@ -5,11 +5,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 import com.soflog.sunny.R;
 
 public class MainActivity extends Activity {
+
+    static final int SCAN_REQUEST_PRISE = 0;
 
     private String name = "UNKNOWN";
     private String code = "INVALID";
@@ -55,4 +58,40 @@ public class MainActivity extends Activity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    public void network_click(View view) {
+
+
+    }
+
+    public void button_prise_click(View view) {
+
+        Intent intent = new Intent("com.google.zxing.client.android.SCAN");
+
+        intent.setPackage("com.google.zxing.client.android");
+        //intent.putExtra("SCAN_MODE", "QR_CODE_MODE"); // TODO Autorise Barcode
+
+        startActivityForResult( intent, SCAN_REQUEST_PRISE );
+
+    }
+
+
+    protected void onActivityResult(int requestCode, int resultCode,
+                                    Intent data) {
+        if (requestCode == SCAN_REQUEST_PRISE) {
+            if (resultCode == RESULT_OK) {
+                // A contact was picked.  Here we will just display it
+                // to the user.
+                String contents = data.getStringExtra("SCAN_RESULT");
+                String format = data.getStringExtra("SCAN_RESULT_FORMAT");
+                Toast.makeText(this, format + " - " + contents, Toast.LENGTH_LONG).show();
+
+            }
+        }
+    }
+
+
+
+
+
 }
