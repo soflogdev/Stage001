@@ -7,5 +7,6 @@
     <string name="label_sendemail">Rédiger un email</string>
     <string name="title_activity_select_user">SelectUserActivity</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_history">HistoryActivity</string>
 
 </resources>

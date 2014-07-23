@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="names">
+        <item>Victor Hugo</item>
+        <item>Jean Jaurès</item>
+        <item>Luc Ferry</item>
+    </array>
+    <array name="codes">
+        <item>U101</item>
+        <item>U102</item>
+        <item>U103</item>
+    </array>
+</resources>
