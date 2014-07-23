@@ -5,5 +5,9 @@
     <string name="hello_world">Bonjour tout le monde !</string>
     <string name="action_settings">Parametres</string>
     <string name="selectuser">Selectionner cet utilisateur</string>
+    <string name="network">Test d\'appel réseau</string>
+    <string name="prise">Prise</string>
+    <string name="depose">Déposer</string>
+    <string name="nbojects">Nombre d\'objets</string>
 
 </resources>

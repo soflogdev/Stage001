@@ -9,5 +9,9 @@
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_history">HistoryActivity</string>
     <string name="selectuser">Select this user</string>
+    <string name="network">Test d\'appel réseau</string>
+    <string name="prise">Prise</string>
+    <string name="depose">Déposer</string>
+    <string name="nbojects">Nombre d\'objets</string>
 
 </resources>
