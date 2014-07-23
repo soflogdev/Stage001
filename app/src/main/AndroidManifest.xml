@@ -1,15 +1,13 @@
+<<<<<<< Original
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.soflog.sunny" >
-
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-
-
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name" >
@@ -19,6 +17,23 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".SelectUserActivity"
+            android:label="@string/title_activity_select_user" >
+        </activity>
     </application>
 
 </manifest>
+
+=======
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <application>
+        <activity android:name="com.soflog.sunny.MainActivity"
+            android:label="@string/title_activity_main"
+            >
+        </activity>
+    </application>
+
+</manifest>
+>>>>>>> Added
