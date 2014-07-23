@@ -8,5 +8,6 @@
     <string name="title_activity_select_user">SelectUserActivity</string>
     <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_history">HistoryActivity</string>
+    <string name="selectuser">Select this user</string>
 
 </resources>

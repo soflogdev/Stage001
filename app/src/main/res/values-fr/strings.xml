@@ -4,5 +4,6 @@
     <string name="app_name">Soleil</string>
     <string name="hello_world">Bonjour tout le monde !</string>
     <string name="action_settings">Parametres</string>
+    <string name="selectuser">Selectionner cet utilisateur</string>
 
 </resources>

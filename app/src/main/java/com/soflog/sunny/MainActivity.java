@@ -1,19 +1,41 @@
 package com.soflog.sunny;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
+
 import com.soflog.sunny.R;
 
 public class MainActivity extends Activity {
+
+    private String name = "UNKNOWN";
+    private String code = "INVALID";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        Intent parentIntent = getIntent();
+        if ((parentIntent != null) && (parentIntent.hasExtra("name")))
+        {
+            name = parentIntent.getStringExtra("name");
+            code = parentIntent.getStringExtra("code");
+        }
+
+
     }
 
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Toast.makeText(this, name + " - " + code, Toast.LENGTH_LONG).show();
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

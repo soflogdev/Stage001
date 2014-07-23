@@ -14,4 +14,13 @@
         android:layout_height="wrap_content"
         android:id="@+id/textview_helloworld"/>
 
+    <Button
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/selectuser"
+        android:id="@+id/button_selectuser"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:onClick="selectuser_click"/>
+
 </RelativeLayout>

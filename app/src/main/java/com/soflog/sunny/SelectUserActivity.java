@@ -1,6 +1,7 @@
 package com.soflog.sunny;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -8,6 +9,8 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.soflog.sunny.R;
+
+import java.util.Random;
 
 public class SelectUserActivity extends Activity {
 
@@ -35,10 +38,14 @@ public class SelectUserActivity extends Activity {
         StringBuilder text;
 
         text = new StringBuilder();
-        text.append( namesArray[0]);
-        text.append( " - "  );
-        text.append( codesArray[0]);
 
+        for( int i=0; i<= 2 ; i++ )
+        {
+            text.append(namesArray[i]);
+            text.append(" - ");
+            text.append(codesArray[i]);
+            text.append("\n");
+        }
         mTextView.setText(text.toString());
     }
 
@@ -59,5 +66,17 @@ public class SelectUserActivity extends Activity {
             return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public void selectuser_click(View view) {
+        //TODO: démarrer l'activité MainActivity en mettant comme paramètre le nom et le code de l'utilisateur
+
+        int random_index = new Random().nextInt(namesArray.length);
+        int index = 1;
+        Intent intent = new Intent(this,MainActivity.class);
+        intent.putExtra("user", namesArray[index]);
+        intent.putExtra("code", codesArray[index]);
+
+        startActivity(intent);
     }
 }
